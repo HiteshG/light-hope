@@ -1,0 +1,108 @@
+{
+  "tools": [
+    {
+      "name": "list_invoices",
+      "description": "Search and list invoices with optional filters. Returns a list of invoice summaries.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": ["pending", "approved", "paid", "overdue", "all"],
+            "description": "Filter by invoice status. Use 'all' to include every status. Defaults to 'all' if omitted."
+          },
+          "vendor": {
+            "type": "string",
+            "description": "Filter by vendor name (case-insensitive partial match)."
+          },
+          "min_amount": {
+            "type": "number",
+            "description": "Minimum invoice amount (inclusive). Filters in the invoice's native currency."
+          },
+          "max_amount": {
+            "type": "number",
+            "description": "Maximum invoice amount (inclusive). Filters in the invoice's native currency."
+          },
+          "currency": {
+            "type": "string",
+            "description": "Filter by currency code (e.g., 'EUR', 'USD')."
+          }
+        },
+        "required": []
+      },
+      "metadata": {
+        "mutating": false
+      }
+    },
+    {
+      "name": "get_invoice",
+      "description": "Get full details of a specific invoice by its ID.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "invoice_id": {
+            "type": "string",
+            "description": "The unique invoice identifier (e.g., 'INV-001')."
+          }
+        },
+        "required": ["invoice_id"]
+      },
+      "metadata": {
+        "mutating": false
+      }
+    },
+    {
+      "name": "approve_invoice",
+      "description": "Approve a pending invoice for payment. Only invoices with status 'pending' can be approved. This action is irreversible.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "invoice_id": {
+            "type": "string",
+            "description": "The ID of the invoice to approve."
+          }
+        },
+        "required": ["invoice_id"]
+      },
+      "metadata": {
+        "mutating": true,
+        "requires_confirmation": true,
+        "irreversible": true
+      }
+    },
+    {
+      "name": "send_notification",
+      "description": "Send a notification message to a Slack channel or user.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "channel": {
+            "type": "string",
+            "description": "The Slack channel (e.g., '#finance') or user handle (e.g., '@cfo')."
+          },
+          "message": {
+            "type": "string",
+            "description": "The notification message content."
+          }
+        },
+        "required": ["channel", "message"]
+      },
+      "metadata": {
+        "mutating": true,
+        "idempotent": false
+      }
+    },
+    {
+      "name": "get_current_user",
+      "description": "Get information about the currently authenticated user, including name, role, and permissions.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "metadata": {
+        "mutating": false
+      }
+    }
+  ]
+}

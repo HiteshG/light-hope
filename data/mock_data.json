@@ -1,0 +1,133 @@
+{
+  "invoices": [
+    {
+      "id": "INV-001",
+      "vendor": "Acme Corp",
+      "amount": 15000.00,
+      "currency": "EUR",
+      "status": "pending",
+      "due_date": "2026-03-15",
+      "description": "Q1 consulting services",
+      "line_items": [
+        { "description": "Strategy workshop (3 days)", "amount": 9000.00 },
+        { "description": "Follow-up report", "amount": 6000.00 }
+      ],
+      "created_at": "2026-02-01T09:00:00Z"
+    },
+    {
+      "id": "INV-002",
+      "vendor": "Acme Corp",
+      "amount": 3500.00,
+      "currency": "EUR",
+      "status": "paid",
+      "due_date": "2026-02-01",
+      "description": "Office supplies — January",
+      "line_items": [
+        { "description": "Ergonomic keyboards (x10)", "amount": 2500.00 },
+        { "description": "Monitor stands (x10)", "amount": 1000.00 }
+      ],
+      "created_at": "2026-01-15T14:30:00Z",
+      "paid_at": "2026-01-28T10:00:00Z"
+    },
+    {
+      "id": "INV-003",
+      "vendor": "Globex Industries",
+      "amount": 8750.00,
+      "currency": "EUR",
+      "status": "pending",
+      "due_date": "2026-03-01",
+      "description": "Cloud hosting — February",
+      "line_items": [
+        { "description": "Compute instances", "amount": 5500.00 },
+        { "description": "Storage & bandwidth", "amount": 2000.00 },
+        { "description": "Support tier", "amount": 1250.00 }
+      ],
+      "created_at": "2026-02-05T08:15:00Z"
+    },
+    {
+      "id": "INV-004",
+      "vendor": "Globex Industries",
+      "amount": 8750.00,
+      "currency": "EUR",
+      "status": "overdue",
+      "due_date": "2026-01-15",
+      "description": "Cloud hosting — January",
+      "line_items": [
+        { "description": "Compute instances", "amount": 5500.00 },
+        { "description": "Storage & bandwidth", "amount": 2000.00 },
+        { "description": "Support tier", "amount": 1250.00 }
+      ],
+      "created_at": "2026-01-05T08:15:00Z"
+    },
+    {
+      "id": "INV-005",
+      "vendor": "Initech Solutions",
+      "amount": 42000.00,
+      "currency": "EUR",
+      "status": "pending",
+      "due_date": "2026-04-01",
+      "description": "Annual software license renewal",
+      "line_items": [
+        { "description": "Enterprise license (50 seats)", "amount": 36000.00 },
+        { "description": "Premium support add-on", "amount": 6000.00 }
+      ],
+      "created_at": "2026-02-10T11:45:00Z"
+    },
+    {
+      "id": "INV-006",
+      "vendor": "Stark & Partners",
+      "amount": 2100.00,
+      "currency": "EUR",
+      "status": "approved",
+      "due_date": "2026-02-28",
+      "description": "Legal review — vendor contract",
+      "line_items": [
+        { "description": "Contract review (7 hours)", "amount": 2100.00 }
+      ],
+      "created_at": "2026-02-08T16:00:00Z",
+      "approved_at": "2026-02-12T09:30:00Z",
+      "approved_by": "Alex Chen"
+    },
+    {
+      "id": "INV-007",
+      "vendor": "Wayne Logistics",
+      "amount": 6200.00,
+      "currency": "USD",
+      "status": "pending",
+      "due_date": "2026-03-10",
+      "description": "International shipping — Q1 batch",
+      "line_items": [
+        { "description": "Freight charges", "amount": 4800.00 },
+        { "description": "Customs & handling", "amount": 1400.00 }
+      ],
+      "created_at": "2026-02-12T13:20:00Z"
+    },
+    {
+      "id": "INV-008",
+      "vendor": "Umbrella Catering",
+      "amount": 950.00,
+      "currency": "EUR",
+      "status": "pending",
+      "due_date": "2026-02-20",
+      "description": "Team event catering — Feb all-hands",
+      "line_items": [
+        { "description": "Lunch buffet (35 pax)", "amount": 700.00 },
+        { "description": "Beverages & snacks", "amount": 250.00 }
+      ],
+      "created_at": "2026-02-14T10:00:00Z"
+    }
+  ],
+  "current_user": {
+    "id": "USR-001",
+    "name": "Alex Chen",
+    "role": "Finance Manager",
+    "email": "alex.chen@light.inc",
+    "permissions": [
+      "read:invoices",
+      "approve:invoices",
+      "send:notifications"
+    ],
+    "approval_limit": 50000.00,
+    "currency": "EUR"
+  }
+}
