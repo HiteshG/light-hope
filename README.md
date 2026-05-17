@@ -1,4 +1,4 @@
-# Light AI Platform Engineer — Take-Home Challenge
+# AI Platform Engineer 
 
 ## The Challenge
 
